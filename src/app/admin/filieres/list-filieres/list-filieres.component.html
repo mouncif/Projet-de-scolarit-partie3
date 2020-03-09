@@ -1,0 +1,57 @@
+<mat-accordion  >
+        
+    <mat-toolbar>Filieres et ses Modules</mat-toolbar>
+    <div  class="main_div">
+ <div *ngFor='let element of dataSource '>
+ <mat-expansion-panel (opened)="panelOpenState = true"
+                 (closed)="panelOpenState = false">
+     <mat-expansion-panel-header>
+     <mat-panel-title >
+             {{element.idFiliere}}
+     </mat-panel-title>
+     <mat-panel-title >
+             {{element.typeFiliere}}
+     </mat-panel-title>
+     <mat-panel-description >
+             {{element.titre}}
+     </mat-panel-description>
+     </mat-expansion-panel-header>
+     <div>
+     <mat-tab-group mat-align-tabs="end" [selectedIndex]="element.idFiliere"
+     (selectedIndexChange)="showModule($event,element.idFiliere )">
+             <mat-tab label="Infos Filieres"> 
+                 <mat-list>
+                     <mat-list-item>idFiliere :  {{element.idFiliere}} </mat-list-item>
+                     <mat-list-item>titre :  {{element.titre}} </mat-list-item>
+                     <mat-list-item>type :  {{element.typeFiliere   }} </mat-list-item>
+                     <mat-list-item>departement :  {{element.departement}} </mat-list-item>
+                     <mat-list-item>chefdefiliere :  {{element.chefdefiliere}} </mat-list-item>
+                 </mat-list>
+             </mat-tab>
+             <mat-tab label="Infos Modules"> 
+                     
+                     <table>
+                             <tr>
+                                   <th>No Module</th>  
+                                   <th>idModule</th>  
+                                   <th>Titre</th>  
+                             </tr>
+                             <tr *ngFor="let module of element.module;let i=index">
+                                <td>M{{i+1}}</td>
+                                <td>{{module.idModule}}</td>
+                                <td>{{module.titre}}</td>
+                             </tr>
+                     </table>
+             </mat-tab>
+           </mat-tab-group>
+         
+     </div> 
+         <button mat-icon-button (click)="onEdit(element)"><mat-icon>launch</mat-icon></button>
+         <button mat-icon-button (click)="onDelete(element.id)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+ 
+     
+              
+ </mat-expansion-panel>
+ </div>
+</div>
+ </mat-accordion>

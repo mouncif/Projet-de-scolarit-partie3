@@ -1,0 +1,57 @@
+<app-topbar></app-topbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="example-sidenav" class="sdnav">
+    <mat-sidenav-container class="sidenav-container" class="sdnav" >
+        <mat-sidenav-content>
+           
+            <mat-nav-list  class="list-horizontal">
+               
+                <mat-list-item [routerLink]="['/addaccount']">
+                    Créer Compte
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/etudiants']">
+                    Compte Etudiants
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/operateurs']">
+                    Compte Opérateurs
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/professeurs']">
+                    Compte Professeurs
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/filieres']">
+                    Créer Filiere
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/list-filieres']">
+                    Gestion Filiere
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/avis']">
+                    Validation des Avis
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/traiterDemande']">
+                    Traietement des demandes
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/piece']">
+                    Gestion de pièces
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/RDV']">
+                    Paramétrage des RDV
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/reclamationNote']">
+                    Réclamations de note
+                </mat-list-item>
+               
+                <mat-list-item [routerLink]="['/reclamation']">
+                    Réclamations pédagogiques
+                </mat-list-item>
+              
+        </mat-nav-list> 
+  
+    
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>

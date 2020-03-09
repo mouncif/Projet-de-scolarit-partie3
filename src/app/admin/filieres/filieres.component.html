@@ -1,0 +1,152 @@
+<mat-toolbar>Création Filière</mat-toolbar>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Information sur la Filière :</ng-template>
+        <mat-grid-list cols="3" rowHeight="3:1">
+            <mat-grid-tile> 
+                <mat-form-field appearance="standard">
+                    <mat-label>Identifiant Filière :</mat-label>
+                    <input matInput placeholder="id ..." formControlName="idFiliere" required>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile> 
+              <mat-form-field>
+                  <mat-label>Type Filière :</mat-label>
+                  <mat-select formControlName="typeFiliere" required>
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let type of typesF" [value]="type">{{type}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile> 
+                <mat-form-field appearance="standard">
+                    <mat-label>Titre Filière :</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="titre" required>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field >
+                    <mat-label>Departement Filière :</mat-label>
+                    <mat-select formControlName="departement" required>
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let deptype of departements" [value]="deptype">{{deptype}}</mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field>
+                        <mat-label>Chef Filière :</mat-label>
+                        <mat-select formControlName="chefdefiliere" required>
+                          <mat-option>None</mat-option>
+                          <mat-option *ngFor="let p of prof" [value]="p.nom +''+ p.prenom">{{p.nom +" "+ p.prenom}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile> 
+                <div>
+                    <button mat-flat-button color="accent" matStepperNext (click)="show()">Suivant</button>
+                  </div>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+    
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" *ngFor="let s of semesters">
+      <form [formGroup]="secondFormGroup" >
+        <ng-template matStepLabel>{{s}} </ng-template>
+
+        <mat-list role="list" >
+            <mat-list-item role="listitem" >
+                <h4>Identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="idModule1" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="titre1" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" >
+                <h4>Identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="idModule2" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="titre2" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" >
+                <h4>identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="idModule3" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="titre3" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" >
+                <h4>identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="idModule4" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="titre4" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" >
+                <h4>identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    
+                    <input matInput  formControlName="idModule5" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    <input matInput  formControlName="titre5" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem" >
+                <h4>identifiant de Module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    <input matInput  formControlName="idModule6" required>
+                </mat-form-field>
+                <h4>Titre de module :</h4>
+                <mat-form-field appearance="standard" class='marg'>
+                    <input matInput  formControlName="titre6" required>
+                </mat-form-field>
+            </mat-list-item> 
+            <mat-divider></mat-divider>
+        </mat-list>
+        
+        <div>
+          <button mat-flat-button color="accent" style="margin-right: 20px;" matStepperPrevious >Retour</button>
+          <button mat-flat-button color="accent" style="margin-right: 20px;" matStepperNext (click)="addmodule()">Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Terminé</ng-template>
+      <p>Maintenat vous pouvez Entregistrer la filière.</p>
+      <div>
+        <button mat-flat-button color="accent" style="margin-right: 20px;" matStepperPrevious>Retour</button>
+        <button mat-flat-button color="accent" style="margin-right: 20px;" (click)="addF()">Enregitrer</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
