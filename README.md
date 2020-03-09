@@ -1,4 +1,4 @@
-# ScolarityPart3
+# Projet de scolarité | Partie 3: Administrateur et opérateur d'admin
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 
